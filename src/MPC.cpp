@@ -10,7 +10,7 @@ using CppAD::AD;
 using Eigen::VectorXd;
 
 /**
- * TODO: Set the timestep length and duration
+ *  Set the timestep length and duration
  */
 size_t N = 10;
 double dt = 0.1;
