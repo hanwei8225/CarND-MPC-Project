@@ -10,7 +10,7 @@ using CppAD::AD;
 using Eigen::VectorXd;
 
 /**
- *  Set the timestep length and duration
+ *  设置时间间隔和预测的步数
  */
 size_t N = 10;
 double dt = 0.1;
@@ -25,14 +25,16 @@ double dt = 0.1;
 //   presented in the classroom matched the previous radius.
 //
 // This is the length from front to CoG that has a similar radius.
+//设置半周长
 const double Lf = 2.67;
 
+//设置目标车速
 double ref_v = 40.0;
 
 // The solver takes all the state variables and actuator
 // variables in a singular vector. Thus, we should to establish
 // when one variable starts and another ends to make our lifes easier.
-// 定义每一个state的起始点
+// 定义每一个state的起始点,因为函数的需要，只能传入一个数组，所以将误差以及各种状态的点都放在一个数组中展开
 size_t x_start = 0;
 size_t y_start = x_start + N;
 size_t psi_start = y_start + N;
